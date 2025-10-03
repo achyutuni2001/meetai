@@ -4,9 +4,11 @@ import { z } from "zod";
 import Link from "next/link";
 import { useState } from "react"
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { OctagonAlertIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth.client";
@@ -58,11 +60,12 @@ export const SignUpView = () => {
         name: data.name,
         email: data.email,
         password: data.password,
+        callbackURL: "/",
       },
       {
         onSuccess: () => {
           setPending(false);
-          router.push("/")
+          router.push("/");
         },                 ///////////////////////
         onError: ({ error }: { error: { message: string } }) => {
           setPending(false);
@@ -71,6 +74,29 @@ export const SignUpView = () => {
       }
     );
   }
+
+  const onSocial = (provider: "github" | "google") => {
+    setError(null);
+    setPending(true);
+
+     authClient.signIn.social(
+      {
+        provider: provider,
+        callbackURL: "/",
+      },
+      {
+        onSuccess: () => {
+          setPending(false);
+        },                 ///////////////////////
+        onError: ({ error }: { error: { message: string } }) => {
+          setPending(false);
+          setError(error.message)
+        },
+      }
+    );
+  }
+
+
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0 text-lg">
@@ -161,11 +187,11 @@ export const SignUpView = () => {
                     )}
                   />
                 </div>
-                {true && (
+                {!!error && (
                   <Alert className="bg-destructive/10 border-none
                   ">
                     <OctagonAlertIcon className="h-6 w-6 !text-destructive"/>
-                    <AlertTitle>Error</AlertTitle>
+                    <AlertTitle>{error}</AlertTitle>
                   </Alert>
                 )}
                 <Button
@@ -175,7 +201,7 @@ export const SignUpView = () => {
                 >
                   Sign in
                 </Button>
-                <div className="after:border-border relative text-center text-sm after:absolute after:insert-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                   <span className="bg-card text-muted-foreground relative z-10 px-2">
                     Or continue with
                   </span>
@@ -183,19 +209,21 @@ export const SignUpView = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("google")}
                     variant="outline"
                     type="button"
                     className="w-full"
                   >
-                    Google
+                    <FaGoogle/>
                   </Button>
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("github")}
                     variant="outline"
                     type="button"
                     className="w-full"
                   >
-                    GitHub
+                  <FaGithub/>
                   </Button>
                 </div>
                 <div className="text-center text-sm">
