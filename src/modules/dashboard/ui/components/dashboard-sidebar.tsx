@@ -5,7 +5,6 @@ import Image from "next/image";
 import { BotIcon, StarIcon, VideoIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils"
-import { usePathname } from "next/navigation";
 import { DashboardUserButton } from "./dashboard-user-button";
 import {
     Sidebar,
