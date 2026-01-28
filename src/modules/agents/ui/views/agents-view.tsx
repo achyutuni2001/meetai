@@ -8,8 +8,6 @@ import { LoadingState } from "@/components/loading-state";
 
 
 
-
-
 export const AgentsView = () => {
   const trpc = useTRPC();
   const { data, isLoading, isError} = useSuspenseQuery(trpc.agents.getMany.queryOptions());
