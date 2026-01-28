@@ -17,3 +17,4 @@ export const createCaller = async () => {
   const ctx = await createTRPCContext();
   return appRouter.createCaller(ctx);
 };
+export const caller = appRouter.createCaller(createTRPCContext);
