@@ -45,7 +45,7 @@ export const CallConnect = ({
         name: userName,
         image: userImage,
       },
-      tokenProvider: async () => generateToken(),
+      tokenProvider: generateToken,
     });
 
     setClient(_client);
