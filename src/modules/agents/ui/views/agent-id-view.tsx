@@ -8,7 +8,7 @@ import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-q
 
 import { useTRPC } from "@/trpc/client";
 import { Badge } from "@/components/ui/badge";
-import { useConfirm } from "@/hooks/use-confim";
+import { useConfirm } from "@/hooks/use-confirm";
 import { ErrorState } from "@/components/error-state";
 import { LoadingState } from "@/components/loading-state";
 import { GeneratedAvatar } from "@/components/generated-avatar";
