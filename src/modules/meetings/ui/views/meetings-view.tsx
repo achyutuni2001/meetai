@@ -48,7 +48,7 @@ export const MeetingsViewLoading = () => {
   return (
     <LoadingState
       title="Loading Meetings"
-      decription="This may take a fews econds"
+      description="This may take a fews econds"
     />
   );
 };
@@ -57,7 +57,7 @@ export const MeetingsViewError = () => {
   return (
     <ErrorState
       title="Error Loading Meetings"
-      decription="Something went wrong"
+      description="Something went wrong"
     />
   )
 }

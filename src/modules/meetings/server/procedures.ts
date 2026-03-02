@@ -5,7 +5,7 @@ import { and, count, desc, eq, getTableColumns, ilike, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { agents, meetings } from "@/db/schema";
 import { generateAvatarUri } from "@/lib/avatar";
-import { getStreamVideoClient } from "@/lib/stream-video";
+import { streamVideo } from "@/lib/stream-video";
 import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from "@/constants";
 
@@ -14,8 +14,6 @@ import { meetingsInsertSchema, meetingsUpdateSchema } from "../schemas";
 
 export const meetingsRouter = createTRPCRouter({
   generateToken: protectedProcedure.mutation(async ({ ctx }) => {
-    const streamVideo = getStreamVideoClient();
-
     await streamVideo.upsertUsers([
       {
         id: ctx.auth.user.id,
@@ -86,8 +84,6 @@ export const meetingsRouter = createTRPCRouter({
   create: protectedProcedure
     .input(meetingsInsertSchema)
     .mutation(async ({ input, ctx }) => {
-      const streamVideo = getStreamVideoClient();
-
       const [createdMeeting] = await db
         .insert(meetings)
         .values({

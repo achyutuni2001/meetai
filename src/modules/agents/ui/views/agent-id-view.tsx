@@ -102,7 +102,7 @@ export const AgentIdViewLoading = () => {
   return (
     <LoadingState
       title="Loading Agent"
-      decription="This may take a fews econds"
+      description="This may take a fews econds"
     />
   );
 };
@@ -111,7 +111,7 @@ export const AgentIdViewError = () => {
   return (
     <ErrorState
       title="Error Loading Agent"
-      decription="Something went wrong"
+      description="Something went wrong"
     />
   )
 }

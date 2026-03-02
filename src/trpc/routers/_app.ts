@@ -1,5 +1,5 @@
 import { agentsRouter } from '@/modules/agents/server/procedures';
-import { meetingsRouter } from '@/modules/meetings/server/procedures'
+import { meetingsRouter } from '@/modules/meetings/server/procedures';
 
 import { createTRPCRouter } from '../init';
 

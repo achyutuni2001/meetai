@@ -59,7 +59,7 @@ export const CommandSelect = ({
         <ChevronsUpDownIcon />
       </Button>
       <CommandResponsiveDialog
-        commandProps={{ shouldFilter: !onSearch }}
+        shouldFilter={!onSearch}
         open={open}
         onOpenChange={handleOpenChange}
       >
