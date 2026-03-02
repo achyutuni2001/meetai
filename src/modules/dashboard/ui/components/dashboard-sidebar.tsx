@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { BotIcon, StarIcon, VideoIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils"
@@ -40,8 +41,7 @@ const secondSection = [
 ];
 
 export const DashboardSidebar = () => {
-    //const pathname = usePathname();
-    const pathname = "/meetings"
+    const pathname = usePathname();
     return(
         <Sidebar>
             <SidebarContent>
@@ -109,5 +109,4 @@ export const DashboardSidebar = () => {
         
     )
 };
-
 
