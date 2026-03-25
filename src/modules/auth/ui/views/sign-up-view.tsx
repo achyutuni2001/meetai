@@ -97,17 +97,18 @@ export const SignUpView = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <Card className="overflow-hidden p-0">
-        <CardContent className="grid p-0 md:grid-cols-2">
+    <div className="flex min-h-screen items-center justify-center px-4 py-10">
+      <div className="w-full max-w-4xl">
+        <Card className="overflow-hidden rounded-[28px] border border-[#d8e5ff] bg-white/95 p-0 shadow-[0_24px_60px_rgba(82,126,209,0.18)]">
+          <CardContent className="grid min-h-[540px] p-0 md:grid-cols-2">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 md:p-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-center p-6 md:p-10">
               <div className="flex flex-col gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <h1 className="text-2xl font-bold">
+                <div className="flex flex-col">
+                  <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
                     Let&apos;s get started
                   </h1>
-                  <p className="text-muted-foreground text-balance">
+                  <p className="text-lg text-slate-500">
                     Create your account
                   </p>
                 </div>
@@ -196,9 +197,9 @@ export const SignUpView = () => {
                 <Button
                   disabled={pending}
                   type="submit"
-                  className="w-full"
+                  className="h-12 w-full rounded-xl bg-[#3e80f0] text-base shadow-[0_10px_20px_rgba(62,128,240,0.25)] hover:bg-[#2f72e6]"
                 >
-                  Sign in
+                  Sign up
                 </Button>
                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                   <span className="bg-card text-muted-foreground relative z-10 px-2">
@@ -235,21 +236,18 @@ export const SignUpView = () => {
             </form>
           </Form>
 
-          <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
-            <img src="/logo.svg" alt="Image" className="h-[92px] w-[92px]" />
-            <p
-              className="text-3xl font-extrabold tracking-tight antialiased"
-              style={{ fontFamily: '"Gill Sans", "Trebuchet MS", "Segoe UI", sans-serif' }}
-            >
-              <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">Intelli</span>
-              <span className="text-blue-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">Meet</span>
+          <div className="relative hidden overflow-hidden bg-gradient-to-br from-[#3a7af0] via-[#3276ee] to-[#5ea0ff] md:flex md:flex-col md:items-center md:justify-center">
+            <img src="/logo.svg" alt="IntelliMeet" className="h-[88px] w-[88px] drop-shadow-[0_12px_30px_rgba(16,55,120,0.35)]" />
+            <p className="mt-6 text-5xl font-black tracking-tight text-white">
+              IntelliMeet
             </p>
           </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        <div className="mt-6 text-center text-xs text-slate-500 *:[a]:underline *:[a]:underline-offset-4">
+          By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </div>
       </div>
     </div>
   );

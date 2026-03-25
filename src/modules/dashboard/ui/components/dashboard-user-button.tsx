@@ -46,19 +46,19 @@ export const DashboardUserButton = () => {
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-white/5 hover:bg-white/10 overflow-hidden gap-x-2">
+        <DrawerTrigger className="mx-1 mb-1 flex w-full items-center justify-between gap-x-3 overflow-hidden rounded-[24px] border border-white/10 bg-white/6 p-3 hover:bg-white/10 group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-12 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:rounded-full group-data-[collapsible=icon]:p-1.5">
           {data.user.image ? (
-            <Avatar>
-              <AvatarImage src={data.user.image} />
+            <Avatar className="size-9 group-data-[collapsible=icon]:size-full">
+              <AvatarImage src={data.user.image} alt={data.user.name} />
             </Avatar>
           ) : (
             <GeneratedAvatar
               seed={data.user.name}
               variant="initials"
-              className="size-9 mr-3"
+              className="size-9 mr-3 group-data-[collapsible=icon]:mr-0 group-data-[collapsible=icon]:size-full"
             />
           )}
-          <div className="flex flex-col gap-0.5 text-left overflow-hidden flex-1 min-w-0">
+          <div className="flex flex-1 min-w-0 flex-col gap-0.5 overflow-hidden text-left group-data-[collapsible=icon]:hidden">
             <p className="text-sm truncate w-full">
               {data.user.name}
             </p>
@@ -66,7 +66,7 @@ export const DashboardUserButton = () => {
               {data.user.email}
             </p>
           </div>
-          <ChevronDownIcon className="size-4 shrink-0" />
+          <ChevronDownIcon className="size-4 shrink-0 group-data-[collapsible=icon]:hidden" />
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
@@ -96,27 +96,27 @@ export const DashboardUserButton = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-white/5 hover:bg-white/10 overflow-hidden gap-x-2">
+      <DropdownMenuTrigger className="mx-1 mb-1 flex w-full items-center justify-between gap-x-3 overflow-hidden rounded-[24px] border border-white/10 bg-white/6 p-3 hover:bg-white/10 group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-12 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:rounded-full group-data-[collapsible=icon]:p-1.5">
        {data.user.image ? (
-          <Avatar>
-            <AvatarImage src={data.user.image} />
+          <Avatar className="size-9 group-data-[collapsible=icon]:size-full">
+            <AvatarImage src={data.user.image} alt={data.user.name} />
           </Avatar>
         ) : (
           <GeneratedAvatar
             seed={data.user.name}
             variant="initials"
-            className="size-9 mr-3"
+            className="size-9 mr-3 group-data-[collapsible=icon]:mr-0 group-data-[collapsible=icon]:size-full"
           />
         )}
-        <div className="flex flex-col gap-0.5 text-left overflow-hidden flex-1 min-w-0">
-          <p className="text-sm truncate w-full">
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5 overflow-hidden text-left group-data-[collapsible=icon]:hidden">
+          <p className="w-full truncate text-sm font-medium text-white">
             {data.user.name}
           </p>
-          <p className="text-xs truncate w-full">
+          <p className="w-full truncate text-xs text-blue-100/70">
             {data.user.email}
           </p>
         </div>
-        <ChevronDownIcon className="size-4 shrink-0" />
+        <ChevronDownIcon className="size-4 shrink-0 text-blue-100/70 group-data-[collapsible=icon]:hidden" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" side="right" className="w-72">
         <DropdownMenuLabel>

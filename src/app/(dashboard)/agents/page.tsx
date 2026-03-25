@@ -9,7 +9,6 @@ import { auth } from "@/lib/auth";
 import { getQueryClient, trpc } from "@/trpc/server";
 
 import { loadSearchParams } from "@/modules/agents/params";
-import { AgentsListHeader } from "@/modules/agents/ui/components/agents-list-header";
 import { 
   AgentsView, 
   AgentsViewError, 
@@ -38,7 +37,6 @@ const Page = async ({ searchParams }: Props) => {
 
   return (
     <>
-      <AgentsListHeader />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Suspense fallback={<AgentsViewLoading />}>
           <ErrorBoundary fallback={<AgentsViewError />}>

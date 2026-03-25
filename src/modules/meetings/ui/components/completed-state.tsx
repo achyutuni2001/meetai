@@ -27,33 +27,33 @@ export const CompletedState = ({ data }: Props) => {
   return (
     <div className="flex flex-col gap-y-4">
       <Tabs defaultValue="summary">
-        <div className="bg-white rounded-lg border px-3">
+        <div className="intel-panel px-4">
           <ScrollArea>
-             <TabsList className="p-0 bg-background justify-start rounded-none h-13">
+             <TabsList className="h-16 justify-start gap-2 bg-transparent p-0">
                 <TabsTrigger
                   value="summary"
-                  className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=active]:text-accent-foreground h-full hover:text-accent-foreground"
+                  className="rounded-full px-4 text-slate-500 data-[state=active]:bg-[#eef4ff] data-[state=active]:text-[#2f72e6]"
                 >
                   <BookOpenTextIcon />
                   Summary
                 </TabsTrigger>
                 <TabsTrigger
                   value="transcript"
-                  className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=active]:text-accent-foreground h-full hover:text-accent-foreground"
+                  className="rounded-full px-4 text-slate-500 data-[state=active]:bg-[#eef4ff] data-[state=active]:text-[#2f72e6]"
                 >
                   <FileTextIcon />
                   Transcript
                 </TabsTrigger>
                 <TabsTrigger
                   value="recording"
-                  className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=active]:text-accent-foreground h-full hover:text-accent-foreground"
+                  className="rounded-full px-4 text-slate-500 data-[state=active]:bg-[#eef4ff] data-[state=active]:text-[#2f72e6]"
                 >
                 <FileVideoIcon />
                 Recording
               </TabsTrigger>
               <TabsTrigger
                 value="chat"
-                className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=active]:text-accent-foreground h-full hover:text-accent-foreground"
+                className="rounded-full px-4 text-slate-500 data-[state=active]:bg-[#eef4ff] data-[state=active]:text-[#2f72e6]"
               >
                 <SparklesIcon />
                 Ask AI
@@ -69,7 +69,7 @@ export const CompletedState = ({ data }: Props) => {
           <Transcript meetingId={data.id} />
         </TabsContent>
         <TabsContent value="recording">
-          <div className="bg-white rounded-lg border px-4 py-5">
+          <div className="intel-panel px-4 py-5">
             <video
               src={data.recordingUrl!}
               className="w-full rounded-lg"
@@ -78,7 +78,7 @@ export const CompletedState = ({ data }: Props) => {
           </div>
         </TabsContent>
         <TabsContent value="summary">
-          <div className="bg-white rounded-lg border">
+          <div className="intel-panel">
             <div className="px-4 py-5 gap-y-5 flex flex-col col-span-5">
               <h2 className="text-2xl font-medium capitalize">{data.name}</h2>
               <div className="flex gap-x-2 items-center">
